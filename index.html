@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sourdough Sheet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Sourdough Calculator</h1>
+    <section class="box wide">
+        <h3>Presets</h3>
+        <select id="presetSelect">
+            <option value="">— Select recipe —</option>
+        </select>
+        <button id="loadPreset">Load</button>
+        <button id="exportPdf">Export PDF</button>
+    </section>
+
+    <div class="sheet">
+
+        <!-- TOP -->
+        <div class="box">
+            <div class="row">
+                <label>Dough weight</label>
+                <input id="doughWeight" type="number" value="800">
+                <span>g</span>
+            </div>
+
+            <div class="row">
+                <label>Levain</label>
+                <input id="levainPct" type="number" value="20">
+                <span>%</span>
+            </div>
+
+            <div class="row">
+                <label>Pre-fermented flour</label>
+                <input id="pff" disabled>
+                <span>%</span>
+            </div>
+        </div>
+
+        <!-- TOTAL INGREDIENTS -->
+        <div class="box wide">
+            <h3>Total ingredients</h3>
+
+            <div class="header">
+                <span></span>
+                <span>Baker’s %</span>
+                <span>Weight (g)</span>
+            </div>
+
+            <div class="row">
+                <label>Strong white flour</label>
+                <input id="f1Pct" type="number" value="100">
+                <input id="f1Wt" disabled>
+            </div>
+
+            <div class="row">
+                <label>Flour 2</label>
+                <input id="f2Pct" type="number" value="0">
+                <input id="f2Wt" disabled>
+            </div>
+
+            <div class="row">
+                <label>Flour 3</label>
+                <input id="f3Pct" type="number" value="0">
+                <input id="f3Wt" disabled>
+            </div>
+
+            <div class="row">
+                <label>Water</label>
+                <input id="hydration" type="number" value="65">
+                <input id="waterWt" disabled>
+            </div>
+
+            <div class="row">
+                <label>Salt</label>
+                <input id="saltPct" type="number" value="2">
+                <input id="saltWt" disabled>
+            </div>
+
+            <div class="total">
+                <span>Total weight</span>
+                <span id="totalWeight">—</span>
+            </div>
+        </div>
+
+        <!-- FERMENTS -->
+        <div class="box">
+            <h3>Levain (100 / 100 / 100)</h3>
+
+            <div class="row">
+                <label>Flour</label>
+                <input disabled>
+                <input id="levainFlour" disabled>
+            </div>
+
+            <div class="row">
+                <label>Water</label>
+                <input disabled>
+                <input id="levainWater" disabled>
+            </div>
+
+            <div class="row">
+                <label>Starter</label>
+                <input disabled>
+                <input id="levainStarter" disabled>
+            </div>
+
+            <div class="total">
+                <span>Total</span>
+                <span id="levainTotal">—</span>
+            </div>
+        </div>
+
+        <!-- MAIN DOUGH -->
+        <div class="box">
+            <h3>Main dough</h3>
+
+            <div class="row">
+                <label>Flour</label>
+                <input id="mainFlour" disabled>
+            </div>
+
+            <div class="row">
+                <label>Water</label>
+                <input id="mainWater" disabled>
+            </div>
+
+            <div class="row">
+                <label>Salt</label>
+                <input id="mainSalt" disabled>
+            </div>
+
+            <div class="row">
+                <label>Levain</label>
+                <input id="mainLevain" disabled>
+            </div>
+
+            <div class="total">
+                <span>Total</span>
+                <span id="mainTotal">—</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("sw.js");
+        }
+    </script>
+</body>
+
+</html>

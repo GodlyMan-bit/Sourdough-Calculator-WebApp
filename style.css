@@ -1,0 +1,158 @@
+/* ---------- RESET ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 1rem;
+  font-family: "EB Garamond", Garamond, "Times New Roman", serif;
+  background: #fbf7f1;
+  color: #2a2a2a;
+  line-height: 1.45;
+}
+
+/* ---------- LAYOUT ---------- */
+.sheet {
+  max-width: 720px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* ---------- SECTIONS ---------- */
+.box {
+  padding: 1rem 0;
+  border-top: 1px solid #c8bfb2;
+}
+
+.box:first-child {
+  border-top: none;
+}
+
+.box.wide {
+  padding-top: 0.5rem;
+}
+
+/* ---------- HEADINGS ---------- */
+h1, h3 {
+  font-size: 2rem;
+  font-weight: normal;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem 0;
+  color: #6b4e2e;
+}
+
+/* ---------- GRID ROWS ---------- */
+.header,
+.row,
+.total {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.header {
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #6b4e2e;
+  border-bottom: 1px solid #c8bfb2;
+  padding-bottom: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+/* ---------- LABELS ---------- */
+label {
+  font-style: italic;
+}
+
+/* ---------- INPUTS ---------- */
+input {
+  width: 4.5rem;
+  padding: 0.2rem 0.3rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  border: none;
+  border-bottom: 1px solid #c8bfb2;
+  background: transparent;
+  color: inherit;
+  text-align: right;
+}
+
+input:disabled {
+  border-bottom-style: dotted;
+  color: #555;
+}
+
+/* ---------- TOTAL ROW ---------- */
+.total {
+  margin-top: 0.4rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid #c8bfb2;
+  font-weight: bold;
+}
+
+/* ---------- BUTTONS ---------- */
+button,
+select {
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.6rem;
+  background: transparent;
+  border: 1px solid #c8bfb2;
+  color: #6b4e2e;
+}
+
+button:hover {
+  background: #f0e8dd;
+}
+
+/* ---------- PRESETS BAR ---------- */
+section.box.wide {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* ---------- MOBILE POLISH ---------- */
+@media (max-width: 480px) {
+  input {
+    width: 3.8rem;
+  }
+
+  h3 {
+    font-size: 1.05rem;
+  }
+
+  .row,
+  .header,
+  .total {
+    grid-template-columns: 1fr auto auto;
+  }
+}
+
+/* ---------- PRINT ---------- */
+@media print {
+  body {
+    background: white;
+  }
+
+  button,
+  select {
+    display: none;
+  }
+
+  .sheet {
+    max-width: none;
+  }
+
+  .box {
+    page-break-inside: avoid;
+  }
+}
